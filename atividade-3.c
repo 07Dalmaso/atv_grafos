@@ -4,27 +4,27 @@
 #define MAX_NODES 10001
 #define MAX_EDGES 20001
 
-int parent[MAX_NODES];
-bool visited[MAX_NODES];
+int pai[MAX_NODES];
+bool visitado[MAX_NODES];
 
 
 
-int find(int node) {
-    if (parent[node] == -1) {
+int busca(int node) {
+    if (pai[node] == -1) {
         return node;
     }
-    return find(parent[node]);
+    return busca(pai[node]);
 }
 
 bool unionSets(int u, int v) {
-    int a = find(u);
-    int b = find(v);
+    int a = busca(u);
+    int b = busca(v);
 
     if (a == b) {
-        return false;  // There is a cycle
+        return false;
     }
 
-    parent[a] = b;
+    pai[a] = b;
     return true;
 }
 
@@ -32,12 +32,12 @@ bool arvore(int n, int m) {
     int i;
 
     if (m != n - 1) {
-        return false;  // A tree must have exactly n-1 edges
+        return false;  
     }
 
     for (i = 1; i <= n; i++) {
-        parent[i] = -1;
-        visited[i] = false;
+        pai[i] = -1;
+        visitado[i] = false;
     }
 
     for (i = 0; i < m; i++) {
@@ -45,19 +45,19 @@ bool arvore(int n, int m) {
         scanf("%d %d", &u, &v);
 
         if (!unionSets(u, v)) {
-            return false;  // There is a cycle
+            return false; 
         }
     }
 
     int componetes = 0;
     for (i = 1; i <= n; i++) {
-        if (!visited[find(i)]) {
-            visited[find(i)] = true;
+        if (!visitado[busca(i)]) {
+            visitado[busca(i)] = true;
             componetes++;
         }
     }
 
-    return componetes == 1;  // If there is only one connected component, it's a tree
+    return componetes == 1;
 }
 int main() {
     int n, m;

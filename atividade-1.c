@@ -69,5 +69,3 @@ int dfs(vertice *vertices, int raiz, int cor) {
     }
     return 1;
 }
-
- 

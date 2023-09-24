@@ -18,8 +18,24 @@ A ={(1,2),(4,6),(2,5)}
 
 ### Formas de representar um grafo
 
-- Matriz de adjacência 
-- lista de adjacência 
+#### Matriz de adjacência:
+- Essa estrutura é frequentemente utilizada para representar grafos não direcionados.
+- Considere o seguinte grafo não direcionado:
+    ![Alt text](/img/image.png)
+- A matriz de adjacência para este grafo seria:
+    ![Alt text](matriz_adj.png)
+
+#### lista de adjacência:
+- Para cada vértice no grafo, você cria uma lista (ou um arranjo, uma estrutura de dados que pode armazenar múltiplos elementos) que contém todos os vértices adjacentes a ele.
+- Maneira mais eficaz para grafos maiores
+- Considere o seguinte grafo não direcionado:
+    ![Alt text](/img/image.png)
+- A lista de adjacência para este grafo seria:
+
+    A: B, C
+    B: A, D
+    C: A, D
+    D: B, C
 
 ### Componetes conectados 
 

@@ -21,15 +21,17 @@ A ={(1,2),(4,6),(2,5)}
 #### Matriz de adjacência:
 - Essa estrutura é frequentemente utilizada para representar grafos não direcionados.
 - Considere o seguinte grafo não direcionado:
-    ![Alt text](/img/image.png)
+    ![image](https://github.com/07Dalmaso/atv_grafos/assets/79981704/9d2b7aa0-a62c-4525-8bec-513d8c4af167)
+
 - A matriz de adjacência para este grafo seria:
-    ![Alt text](matriz_adj.png)
+    ![image](https://github.com/07Dalmaso/atv_grafos/assets/79981704/ad5a1fa4-10ef-4d87-918f-4bed6fc3fea6)
 
 #### lista de adjacência:
 - Para cada vértice no grafo, você cria uma lista (ou um arranjo, uma estrutura de dados que pode armazenar múltiplos elementos) que contém todos os vértices adjacentes a ele.
 - Maneira mais eficaz para grafos maiores
 - Considere o seguinte grafo não direcionado:
-    ![Alt text](/img/image.png)
+    ![image](https://github.com/07Dalmaso/atv_grafos/assets/79981704/231e7875-4fdb-448d-92fe-4822965bae22)
+
 - A lista de adjacência para este grafo seria:
 
     A: B, C

@@ -51,7 +51,7 @@ int main() {
                 int components = dfs(i, N);
                 max_routes++;
                 ways_to_choose_captains *= components;
-                ways_to_choose_captains %= 1000000007; // Módulo 10^9 + 7
+                ways_to_choose_captains %= 1000000007;
             }
         }
         

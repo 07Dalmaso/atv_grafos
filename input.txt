@@ -36,3 +36,13 @@ Atividade Extra
 1 2
 3 4
 5 6
+
+atividade 5
+
+Input:
+3
+1 2
+2 3
+
+Output:
+2

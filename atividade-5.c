@@ -3,67 +3,67 @@
 
 #define MAX_NODES 10001
 
-int graph[MAX_NODES][MAX_NODES];
-bool visited[MAX_NODES];
+int grafo[MAX_NODES][MAX_NODES];
+bool visitado[MAX_NODES];
 
-int dfs(int node) {
-    visited[node] = true;
-    int max_depth = 0;
+int dfs(int no) {
+    visitado[no] = true;
+    int profundidade_maxima = 0;
 
     for (int i = 1; i < MAX_NODES; ++i) {
-        if (graph[node][i] && !visited[i]) {
-            int depth = 1 + dfs(i);
-            if (depth > max_depth) {
-                max_depth = depth;
+        if (grafo[no][i] && !visitado[i]) {
+            int profundidade = 1 + dfs(i);
+            if (profundidade > profundidade_maxima) {
+                profundidade_maxima = profundidade;
             }
         }
     }
 
-    return max_depth;
+    return profundidade_maxima;
 }
 
-int longest_path_length(int n, int edges[][2]) {
+int comprimento_caminho_mais_longo(int n, int arestas[][2]) {
     for (int i = 0; i < MAX_NODES; ++i) {
-        visited[i] = false;
+        visitado[i] = false;
         for (int j = 0; j < MAX_NODES; ++j) {
-            graph[i][j] = 0;
+            grafo[i][j] = 0;
         }
     }
 
-    // Creating the adjacency matrix
+    // Criando a matriz de adjacência
     for (int i = 0; i < n - 1; ++i) {
-        int u = edges[i][0];
-        int v = edges[i][1];
-        graph[u][v] = graph[v][u] = 1;
+        int u = arestas[i][0];
+        int v = arestas[i][1];
+        grafo[u][v] = grafo[v][u] = 1;
     }
 
-    int max_length = 0;
+    int comprimento_maximo = 0;
 
-    for (int start_node = 1; start_node <= n; ++start_node) {
+    for (int no_inicial = 1; no_inicial <= n; ++no_inicial) {
         for (int i = 0; i < MAX_NODES; ++i) {
-            visited[i] = false;
+            visitado[i] = false;
         }
 
-        int length = dfs(start_node);
-        if (length > max_length) {
-            max_length = length;
+        int comprimento = dfs(no_inicial);
+        if (comprimento > comprimento_maximo) {
+            comprimento_maximo = comprimento;
         }
     }
 
-    return max_length;
+    return comprimento_maximo;
 }
 
 int main() {
     int n;
     scanf("%d", &n);
 
-    int edges[MAX_NODES - 1][2];
+    int arestas[MAX_NODES - 1][2];
     for (int i = 0; i < n - 1; ++i) {
-        scanf("%d %d", &edges[i][0], &edges[i][1]);
+        scanf("%d %d", &arestas[i][0], &arestas[i][1]);
     }
 
-    int result = longest_path_length(n, edges);
-    printf("%d\n", result);
+    int resultado = comprimento_caminho_mais_longo(n, arestas);
+    printf("%d\n", resultado);
 
     return 0;
 }

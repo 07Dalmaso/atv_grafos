@@ -55,6 +55,7 @@ registro *iniciaRegistro()
     novo = (registro *)calloc(1, sizeof(registro));
 
     return novo;
+    
 }
 
 void colocaFila(fila *minhaFila, int elemento)
